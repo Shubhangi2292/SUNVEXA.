@@ -1,0 +1,6 @@
+{
+  "name": "Sonar - Solar Energy Solutions",
+  "description": "A next-generation solar energy landing page featuring glassmorphism components, interactive benefit accordions, metric stats, and animated visual showcases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

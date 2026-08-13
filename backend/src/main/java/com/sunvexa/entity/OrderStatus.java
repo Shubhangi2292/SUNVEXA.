@@ -1,0 +1,12 @@
+package com.sunvexa.entity;
+
+public enum OrderStatus {
+    PENDING_PAYMENT,
+    PAYMENT_CONFIRMED,
+    PROCESSING,
+    DISPATCHED,
+    INSTALLATION_SCHEDULED,
+    INSTALLATION_IN_PROGRESS,
+    COMPLETED,
+    CANCELLED
+}

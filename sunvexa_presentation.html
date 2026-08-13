@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUNVEXA Presentation Slide Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #080e0b; color: #ffffff; overflow: hidden; }
+    .slide { display: none; height: 100vh; width: 100vw; padding: 4rem; box-sizing: border-box; }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; animation: fadeIn 0.4s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    .glass-card { background: rgba(18, 28, 23, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 1.5rem; }
+    .accent-text { color: #d4ff33; }
+    .accent-bg { background-color: #d4ff33; color: #0a110d; }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-[#d4ff33]/40 text-[#d4ff33] text-sm font-bold tracking-widest uppercase">
+        ⚡ Clean-Tech E-Commerce Platform
+      </div>
+      <h1 class="text-6xl sm:text-7xl font-extrabold tracking-tight">
+        SUN<span class="accent-text">VEXA</span>
+      </h1>
+      <p class="text-2xl text-gray-300 font-medium">Smarter Solar. Brighter Future.</p>
+      <div class="pt-8 flex flex-wrap justify-center gap-3 text-xs text-gray-400 font-mono">
+        <span class="px-3 py-1.5 glass-card">React + TypeScript</span>
+        <span class="px-3 py-1.5 glass-card">HTML5 240-Frame Canvas</span>
+        <span class="px-3 py-1.5 glass-card">Java 21 Spring Boot 3</span>
+        <span class="px-3 py-1.5 glass-card">PostgreSQL 18</span>
+        <span class="px-3 py-1.5 glass-card">Spring Security JWT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Vision & Problem Statement -->
+  <div class="slide">
+    <div class="max-w-5xl mx-auto w-full space-y-8">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 02 / Problem & Solution</div>
+      <h2 class="text-4xl font-extrabold">Revolutionizing Solar E-Commerce</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card p-8 space-y-4 border-red-500/30">
+          <h3 class="text-xl font-bold text-red-400 flex items-center gap-2">⚠️ The Challenge</h3>
+          <ul class="space-y-3 text-gray-300 text-sm">
+            <li class="flex items-start gap-2"><span>•</span> Traditional solar sites are static and lack real-time visual feedback.</li>
+            <li class="flex items-start gap-2"><span>•</span> Complex payback calculations confuse residential & commercial buyers.</li>
+            <li class="flex items-start gap-2"><span>•</span> Lack of transparent installation options and order tracking.</li>
+          </ul>
+        </div>
+        <div class="glass-card p-8 space-y-4 border-[#d4ff33]/40">
+          <h3 class="text-xl font-bold accent-text flex items-center gap-2">✨ The SUNVEXA Solution</h3>
+          <ul class="space-y-3 text-gray-300 text-sm">
+            <li class="flex items-start gap-2"><span>•</span> 240-frame interactive 3D scroll canvas background at 60 FPS.</li>
+            <li class="flex items-start gap-2"><span>•</span> Intelligent Solar Sizing Calculator & AI Solar Copilot.</li>
+            <li class="flex items-start gap-2"><span>•</span> 6-step Buy Now purchase flow + PostgreSQL 18 backed REST API.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Key Features -->
+  <div class="slide">
+    <div class="max-w-5xl mx-auto w-full space-y-6">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 03 / Core Features</div>
+      <h2 class="text-4xl font-extrabold">5 Advanced Solar Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">🎬</div>
+          <h4 class="font-bold accent-text">240-Frame Scroll Canvas</h4>
+          <p class="text-xs text-gray-300">Smooth 60 FPS 3D solar array sequence synchronized to scroll.</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">🤖</div>
+          <h4 class="font-bold accent-text">AI Solar Copilot</h4>
+          <p class="text-xs text-gray-300">Conversational AI recommending panel wattages, hybrid inverters & ROI.</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">🛰️</div>
+          <h4 class="font-bold accent-text">RoofScan AI</h4>
+          <p class="text-xs text-gray-300">Satellite rooftop area assessment, tilt angle & irradiance index.</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">⚡</div>
+          <h4 class="font-bold accent-text">24H Energy Simulator</h4>
+          <p class="text-xs text-gray-300">Hourly load profiling comparing generation vs battery & grid storage.</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">🛠️</div>
+          <h4 class="font-bold accent-text">Build Your System</h4>
+          <p class="text-xs text-gray-300">Custom component builder with instant compatibility checks.</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <div class="text-2xl">🌐</div>
+          <h4 class="font-bold accent-text">Solar Digital Twin</h4>
+          <p class="text-xs text-gray-300">Live digital twin modeling real-time generation and efficiency metrics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Architecture -->
+  <div class="slide">
+    <div class="max-w-5xl mx-auto w-full space-y-6">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 04 / System Architecture</div>
+      <h2 class="text-4xl font-extrabold">Full-Stack Enterprise Stack</h2>
+      <div class="glass-card p-8 space-y-6">
+        <div class="grid grid-cols-3 gap-4 text-center font-bold text-sm">
+          <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="accent-text block text-lg">FRONTEND</span>
+            React + TypeScript + Canvas
+          </div>
+          <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="accent-text block text-lg">BACKEND</span>
+            Java 21 + Spring Boot 3
+          </div>
+          <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="accent-text block text-lg">DATABASE</span>
+            PostgreSQL 18 + Flyway
+          </div>
+        </div>
+        <div class="text-xs font-mono bg-black/50 p-4 rounded-xl text-gray-300 space-y-1">
+          <div>Controllers: Auth, Products, Cart, Orders, Solar, Copilot, Admin</div>
+          <div>Security: Spring Security + JWT Bearer Token Filter + BCrypt</div>
+          <div>ORM: Spring Data JPA / Hibernate mapped to PostgreSQL schemas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: 6-Step Purchase Flow -->
+  <div class="slide">
+    <div class="max-w-5xl mx-auto w-full space-y-6">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 05 / Purchase Engine</div>
+      <h2 class="text-4xl font-extrabold">6-Step Transparent Buy Now Flow</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 1</span>
+          <h4 class="font-bold text-white mt-1">Review Product</h4>
+          <p class="text-xs text-gray-400 mt-1">Specs, warranty, unit pricing & quantity selector.</p>
+        </div>
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 2</span>
+          <h4 class="font-bold text-white mt-1">Customer Details</h4>
+          <p class="text-xs text-gray-400 mt-1">Full contact validation & shipping address.</p>
+        </div>
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 3</span>
+          <h4 class="font-bold text-white mt-1">Delivery & Install</h4>
+          <p class="text-xs text-gray-400 mt-1">Product Only OR Turnkey Installation (+₹25,000).</p>
+        </div>
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 4</span>
+          <h4 class="font-bold text-white mt-1">Instant Payment</h4>
+          <p class="text-xs text-gray-400 mt-1">UPI, Card, Net Banking with transaction reference.</p>
+        </div>
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 5</span>
+          <h4 class="font-bold text-white mt-1">Order Saved</h4>
+          <p class="text-xs text-gray-400 mt-1">Persistent DB order record with price snapshotting.</p>
+        </div>
+        <div class="glass-card p-5 border-[#d4ff33]/40">
+          <span class="accent-text text-sm font-bold">STEP 6</span>
+          <h4 class="font-bold text-white mt-1">Order Tracking</h4>
+          <p class="text-xs text-gray-400 mt-1">Live timeline progress tracking by order number.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Security & Authentication -->
+  <div class="slide">
+    <div class="max-w-5xl mx-auto w-full space-y-6">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 06 / Security Architecture</div>
+      <h2 class="text-4xl font-extrabold">Enterprise Security & Authentication</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-bold text-lg accent-text">🔐 JWT Authentication</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Stateless authentication using standard JWT tokens signed with HMAC-SHA512. Tokens injected into HTTP <code class="accent-text">Authorization: Bearer</code> headers.
+          </p>
+        </div>
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-bold text-lg accent-text">🛡️ BCrypt Hashing</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Passwords hashed with BCrypt strength 10 before saving to PostgreSQL. Zero plain-text credentials stored.
+          </p>
+        </div>
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-bold text-lg accent-text">👥 Role-Based Access Control</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Differentiates CUSTOMER and ADMIN roles using Spring Security <code class="accent-text">@PreAuthorize("hasRole('ADMIN')")</code> annotations.
+          </p>
+        </div>
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-bold text-lg accent-text">💾 Database Schema Versioning</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Flyway database migration engine automates table creation and seed data execution reliably across environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: Summary & Links -->
+  <div class="slide">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+      <div class="text-xs uppercase font-bold tracking-widest accent-text">Slide 07 / Live Demonstration</div>
+      <h2 class="text-5xl font-extrabold">SUNVEXA Platform Live</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+        <div class="glass-card p-6 space-y-2">
+          <span class="text-xs text-gray-400 uppercase font-bold">Frontend Web App</span>
+          <a href="http://localhost:5173/" target="_blank" class="block font-bold accent-text hover:underline text-lg">http://localhost:5173/</a>
+          <p class="text-xs text-gray-400">240-Frame Canvas, Solar Calculator, Buy Now Checkout</p>
+        </div>
+        <div class="glass-card p-6 space-y-2">
+          <span class="text-xs text-gray-400 uppercase font-bold">Swagger REST API Docs</span>
+          <a href="http://localhost:8080/swagger-ui.html" target="_blank" class="block font-bold accent-text hover:underline text-lg">http://localhost:8080/swagger-ui.html</a>
+          <p class="text-xs text-gray-400">Interactive OpenAPI endpoints & PostgreSQL backend</p>
+        </div>
+      </div>
+      <p class="text-xl font-bold accent-text">Thank You! Questions & Discussion</p>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 glass-card px-6 py-3 border border-white/20">
+    <button id="prevBtn" class="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-bold transition cursor-pointer">← Prev</button>
+    <span id="slideCounter" class="text-xs font-mono accent-text">Slide 1 / 7</span>
+    <button id="nextBtn" class="px-3 py-1 accent-bg font-bold rounded-lg text-sm transition cursor-pointer">Next →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+
+    function updateSlides() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      slideCounter.innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+    }
+
+    document.getElementById('prevBtn').onclick = () => {
+      if (currentSlide > 0) { currentSlide--; updateSlides(); }
+    };
+    document.getElementById('nextBtn').onclick = () => {
+      if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); }
+    };
+
+    document.onkeydown = (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentSlide > 0) { currentSlide--; updateSlides(); }
+      }
+    };
+  </script>
+</body>
+</html>
