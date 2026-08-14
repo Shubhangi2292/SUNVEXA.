@@ -2,7 +2,9 @@
 
 # ☀️ SUNVEXA — Smarter Solar. Brighter Future.
 
-![SUNVEXA Banner](./public/assets/sunvexa_banner.png)
+<p align="center">
+  <img src="public/assets/sunvexa_banner.png" width="100%" alt="SUNVEXA Banner" style="border-radius: 12px; margin-bottom: 16px;" />
+</p>
 
 **Next-Generation Clean-Tech E-Commerce & Solar Systems Platform**
 
@@ -18,13 +20,15 @@
 
 ## 🌟 Executive Overview
 
-**SUNVEXA** is a enterprise-grade clean-tech e-commerce platform built to simplify rooftop solar adoption for residential and commercial property owners. It merges high-performance 3D canvas animation with intelligent sizing calculators, conversational AI guidance, and an end-to-end 6-step purchase & live order tracking engine.
+**SUNVEXA** is an enterprise-grade clean-tech e-commerce platform built to simplify rooftop solar adoption for residential and commercial property owners. It merges high-performance 3D canvas animation with intelligent sizing calculators, conversational AI guidance, and an end-to-end 6-step purchase & live order tracking engine.
 
 ---
 
 ## ⚡ 5 Advanced Clean-Tech Features
 
-![SUNVEXA Features Showcase](./public/assets/sunvexa_features.png)
+<p align="center">
+  <img src="public/assets/sunvexa_features.png" width="100%" alt="SUNVEXA Features Showcase" style="border-radius: 12px; margin: 16px 0;" />
+</p>
 
 ### 1. 🎬 240-Frame Canvas Scroll Animation
 - **60 FPS Rendering**: Smooth 3D solar array sequence dynamically bound to scroll position.
@@ -51,7 +55,7 @@
 
 | Monocrystalline PERC | Polycrystalline Heavy-Duty |
 | :---: | :---: |
-| <img src="./public/assets/panels/monocrystalline.png" width="360" alt="Monocrystalline PERC Panel"/> | <img src="./public/assets/panels/polycrystalline.png" width="360" alt="Polycrystalline Panel"/> |
+| <img src="public/assets/panels/monocrystalline.png" width="400" alt="Monocrystalline PERC Panel"/> | <img src="public/assets/panels/polycrystalline.png" width="400" alt="Polycrystalline Panel"/> |
 | **SUNVEXA Apex 550W** • 22.8% Efficiency | **SUNVEXA UltraSolar 530W** • 20.4% Efficiency |
 
 </div>
