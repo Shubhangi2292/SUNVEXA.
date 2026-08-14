@@ -272,7 +272,7 @@ export default function App() {
             }`} />
 
           {/* Faded Background Watermark Text */}
-          <div className={`absolute top-12 left-1/2 -translate-x-1/2 text-[14vw] font-black whitespace-nowrap select-none pointer-events-none tracking-tighter transition-colors duration-500 ${theme === 'light' ? 'text-black/[0.04]' : 'text-white/[0.03]'
+          <div className={`absolute top-12 left-1/2 -translate-x-1/2 text-[17vw] font-black whitespace-nowrap select-none pointer-events-none tracking-tighter transition-colors duration-500 ${theme === 'light' ? 'text-black/[0.04]' : 'text-white/[0.03]'
             }`}>
             SOLAR ENERGY
           </div>
@@ -410,10 +410,33 @@ export default function App() {
           </header>
 
           {/* Hero Main Content */}
-          <div className="relative z-10 max-w-7xl mx-auto w-full pt-16 md:pt-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="relative z-10 max-w-7xl mx-auto w-full pt-12 md:pt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
 
             {/* Left Hero Column */}
             <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+
+              {/* User Rating Badge */}
+              <div className={`inline-flex items-center gap-3 backdrop-blur-md border px-4 py-2 rounded-full shadow-lg ${theme === 'light' ? 'bg-black/5 border-black/10 text-[#0a110d]' : 'bg-white/10 border-white/15 text-white'
+                }`}>
+                <div className="flex -space-x-2">
+                  <img className="w-8 h-8 rounded-full border-2 border-[#121c17] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" alt="User 1" />
+                  <img className="w-8 h-8 rounded-full border-2 border-[#121c17] object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=120&auto=format&fit=crop" alt="User 2" />
+                  <img className="w-8 h-8 rounded-full border-2 border-[#121c17] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop" alt="User 3" />
+                  <div className="w-8 h-8 rounded-full border-2 border-[#121c17] bg-[#d4ff33] text-[#0a110d] font-bold text-xs flex items-center justify-center">
+                    +
+                  </div>
+                </div>
+                <div className="text-xs">
+                  <div className="flex text-amber-400 gap-0.5 text-[10px] mb-0.5">
+                    <Star className="w-3 h-3 fill-amber-400" />
+                    <Star className="w-3 h-3 fill-amber-400" />
+                    <Star className="w-3 h-3 fill-amber-400" />
+                    <Star className="w-3 h-3 fill-amber-400" />
+                    <Star className="w-3 h-3 fill-amber-400" />
+                  </div>
+                  <div><span className="font-semibold">90k+</span> Users Worldwide</div>
+                </div>
+              </div>
 
               {/* Display Headline */}
               <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.06] ${theme === 'light' ? 'text-[#0a110d]' : 'text-white'
@@ -677,8 +700,8 @@ export default function App() {
                   Empowering homes and businesses across the globe with next-generation solar energy technology, clean battery storage, and zero-emission solutions.
                 </p>
                 <div className="flex items-center gap-4 text-xs opacity-50 pt-2">
-                  <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-[#d4ff33]" /> Mumbai, Maharashtra, India</span>
-                  <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-[#d4ff33]" /> +91 98765 43210</span>
+                  <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-[#d4ff33]" /> Palo Alto, CA</span>
+                  <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-[#d4ff33]" /> +1 (800) 555-SUNVEXA</span>
                 </div>
               </div>
 
