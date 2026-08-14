@@ -2,7 +2,7 @@
 
 # ☀️ SUNVEXA — Smarter Solar. Brighter Future.
 
-![SUNVEXA Banner](public/assets/sunvexa_banner.png)
+![SUNVEXA Banner](./public/assets/sunvexa_banner.png)
 
 **Next-Generation Clean-Tech E-Commerce & Solar Systems Platform**
 
@@ -24,7 +24,7 @@
 
 ## ⚡ 5 Advanced Clean-Tech Features
 
-![SUNVEXA Features Showcase](public/assets/sunvexa_features.png)
+![SUNVEXA Features Showcase](./public/assets/sunvexa_features.png)
 
 ### 1. 🎬 240-Frame Canvas Scroll Animation
 - **60 FPS Rendering**: Smooth 3D solar array sequence dynamically bound to scroll position.
@@ -51,7 +51,7 @@
 
 | Monocrystalline PERC | Polycrystalline Heavy-Duty |
 | :---: | :---: |
-| <img src="public/assets/panels/monocrystalline.png" width="360" alt="Monocrystalline PERC Panel"/> | <img src="public/assets/panels/polycrystalline.png" width="360" alt="Polycrystalline Panel"/> |
+| <img src="./public/assets/panels/monocrystalline.png" width="360" alt="Monocrystalline PERC Panel"/> | <img src="./public/assets/panels/polycrystalline.png" width="360" alt="Polycrystalline Panel"/> |
 | **SUNVEXA Apex 550W** • 22.8% Efficiency | **SUNVEXA UltraSolar 530W** • 20.4% Efficiency |
 
 </div>
