@@ -52,14 +52,14 @@ export const ContactQuoteSection: React.FC<ContactQuoteProps> = ({ defaultProper
                 <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#d4ff33]">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span>Headquarters: Palo Alto, CA & Regional Offices Across India</span>
+                <span>Headquarters: Mumbai, Maharashtra, India</span>
               </div>
 
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#d4ff33]">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span>Toll-Free Assistance: +1 (800) 555-SUNVEXA</span>
+                <span>Toll-Free Assistance: +91 98765 43210</span>
               </div>
 
               <div className="flex items-center gap-3">
