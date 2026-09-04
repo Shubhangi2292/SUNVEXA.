@@ -34,7 +34,7 @@ export const EnergySimulator24H: React.FC = () => {
   const isSurplus = netPowerKW > 0;
 
   return (
-    <section id="simulator-24h" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="simulator-24h" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       <div className={`rounded-3xl p-6 sm:p-12 text-white relative overflow-hidden shadow-2xl border transition-all duration-700 ${
         isDaytime 
           ? 'bg-gradient-to-b from-[#121c17] via-[#1a2e24] to-[#0a110d] border-amber-400/30' 

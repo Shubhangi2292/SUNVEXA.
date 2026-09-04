@@ -45,7 +45,7 @@ export const SolarCalculator: React.FC<SolarCalculatorProps> = ({
   const recommendedSystem = SOLAR_PRODUCTS.find(p => p.id === 'sys-res-5k') || SOLAR_PRODUCTS[SOLAR_PRODUCTS.length - 1];
 
   return (
-    <section id="calculator" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="calculator" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       <div className="bg-[#121c17]/85 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-12 text-white relative overflow-hidden shadow-2xl">
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-15 bg-cover bg-center pointer-events-none hidden lg:block"
           style={{ backgroundImage: `url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop')` }}

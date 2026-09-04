@@ -36,7 +36,7 @@ export const ScrollCanvas: React.FC = () => {
     return null;
   };
 
-  // Draw frame on canvas with contain fitting
+  // Draw frame on canvas with cover fitting to cover full viewport edge-to-edge
   const renderFrame = (index: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -56,17 +56,17 @@ export const ScrollCanvas: React.FC = () => {
 
     let drawW: number, drawH: number, drawX: number, drawY: number;
 
-    // Use contain fitting so 100% of video frame is visible without cropping
+    // Cover fitting math to eliminate side spaces while preserving aspect ratio
     if (canvasRatio > imgRatio) {
-      drawH = ch;
-      drawW = ch * imgRatio;
-      drawX = (cw - drawW) / 2;
-      drawY = 0;
-    } else {
       drawW = cw;
       drawH = cw / imgRatio;
       drawX = 0;
       drawY = (ch - drawH) / 2;
+    } else {
+      drawH = ch;
+      drawW = ch * imgRatio;
+      drawX = (cw - drawW) / 2;
+      drawY = 0;
     }
 
     ctx.drawImage(img, drawX, drawY, drawW, drawH);
@@ -153,7 +153,7 @@ export const ScrollCanvas: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-screen h-screen pointer-events-none z-0 object-contain bg-[#05070a]"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0 object-cover bg-[#05070a]"
     />
   );
 };

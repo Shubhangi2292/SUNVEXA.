@@ -29,7 +29,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteProps> = ({ defaultProper
   };
 
   return (
-    <section id="contact" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="contact" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       <div className="bg-[#121c17]/85 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-12 text-white relative overflow-hidden shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           

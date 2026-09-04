@@ -32,7 +32,7 @@ export const RoofAnalysis: React.FC = () => {
   };
 
   return (
-    <section id="roof-analysis" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="roof-analysis" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       <div className="bg-[#121c17]/85 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-12 text-white relative overflow-hidden shadow-2xl">
         
         {/* Header */}

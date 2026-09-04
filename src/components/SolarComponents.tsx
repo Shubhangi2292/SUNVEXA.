@@ -36,7 +36,7 @@ export const SolarComponents: React.FC = () => {
   ];
 
   return (
-    <section id="components" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="components" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">

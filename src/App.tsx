@@ -278,7 +278,7 @@ export default function App() {
           </div>
 
           {/* Extended Navigation Bar */}
-          <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+          <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1600px] z-50">
             <div className={`flex items-center justify-between backdrop-blur-xl px-4 md:px-6 py-2.5 rounded-full shadow-2xl transition-all ${theme === 'light'
                 ? 'bg-white/90 border border-black/10 text-[#0a110d] hover:bg-white'
                 : 'bg-[#0a110d]/85 border border-white/20 text-white hover:bg-[#0a110d]/95'
@@ -410,7 +410,7 @@ export default function App() {
           </header>
 
           {/* Hero Main Content */}
-          <div className="relative z-10 max-w-7xl mx-auto w-full pt-16 md:pt-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="relative z-10 max-w-[1600px] mx-auto w-full pt-16 md:pt-24 px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
 
             {/* Left Hero Column */}
             <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
@@ -524,7 +524,7 @@ export default function App() {
         {/* --- DYNAMIC LOGOS MARQUEE --- */}
         <section className={`py-12 border-b overflow-hidden backdrop-blur-md transition-colors duration-500 ${theme === 'light' ? 'bg-white/80 border-black/10 text-[#0a110d]' : 'bg-[#0a110d]/85 border-white/10 text-white'
           }`}>
-          <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 mb-6 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest opacity-60">
               Trusted by top global agriculture & energy leaders
             </p>
@@ -546,7 +546,7 @@ export default function App() {
         </section>
 
         {/* --- WHY CHOOSE SECTION --- */}
-        <section id="why-solar" className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-8">
+        <section id="why-solar" className="py-20 md:py-28 max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-14">
             <div className="md:col-span-7">
               <span className="inline-block px-3 py-1 bg-[#d4ff33]/20 text-[#d4ff33] text-xs font-bold uppercase tracking-wider rounded-full mb-3 border border-[#d4ff33]/30">
@@ -662,7 +662,7 @@ export default function App() {
         {/* --- FOOTER --- */}
         <footer className={`backdrop-blur-xl pt-16 pb-12 border-t transition-colors duration-500 ${theme === 'light' ? 'bg-white/90 border-black/10 text-[#0a110d]' : 'bg-[#0a110d]/95 border-white/10 text-white'
           }`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
 
               {/* Brand Info */}

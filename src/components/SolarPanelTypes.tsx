@@ -66,7 +66,7 @@ export const SolarPanelTypes: React.FC = () => {
     : panelData.filter(p => p.id === selectedTab);
 
   return (
-    <section id="panel-types" className="py-20 max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="panel-types" className="py-20 max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12">
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">

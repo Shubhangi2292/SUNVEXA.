@@ -48,7 +48,7 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 max-w-5xl mx-auto px-4 sm:px-8">
+    <section id="faq" className="py-20 max-w-[1440px] w-full mx-auto px-4 sm:px-8 md:px-12">
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">

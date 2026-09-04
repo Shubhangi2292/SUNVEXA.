@@ -8,11 +8,20 @@
     --primary-hover: #bce61a;
   }
 
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: var(--font-sans);
     color: #0a110d;
-    background-color: #ffffff;
-    overflow-x: hidden;
+    background-color: #05070a;
   }
 }
 
