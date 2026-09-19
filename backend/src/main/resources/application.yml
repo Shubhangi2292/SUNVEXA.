@@ -42,6 +42,10 @@ app:
     secret: ${JWT_SECRET:9a4f2c8d7e1b5a3f8c0d2e4f6a8b1c3d5e7f9a2b4c6d8e0f1a3b5c7d9e1f3b5a}
     expiration-ms: 86400000 # 24 hours
 
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:}
+
 springdoc:
   api-docs:
     path: /v3/api-docs

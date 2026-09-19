@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Bot, Send, Sparkles, User, Sun, ArrowRight, Zap, ShoppingCart } from 'lucide-react';
 import { SOLAR_PRODUCTS, SolarProduct } from '../data/solarProducts';
+import { generateCopilotResponse, CopilotMessage } from '../services/copilotService';
 
 interface Message {
   sender: 'ai' | 'user';
@@ -31,69 +32,72 @@ export const SolarCopilotModal: React.FC<SolarCopilotModalProps> = ({
     }
   ]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = async (textToSend?: string) => {
     const query = textToSend || input;
-    if (!query.trim()) return;
+    if (!query.trim() || isTyping) return;
 
-    const newMessages: Message[] = [...messages, { sender: 'user', text: query }];
-    setMessages(newMessages);
+    const userMsg: Message = { sender: 'user', text: query };
+    const updatedHistory = [...messages, userMsg];
+
+    setMessages(updatedHistory);
     setInput('');
+    setIsTyping(true);
 
-    // Generate intelligent AI demo response based on user query
-    setTimeout(() => {
-      let responseText = '';
+    const copilotHistory: CopilotMessage[] = updatedHistory.map(m => ({
+      sender: m.sender,
+      text: m.text
+    }));
+
+    try {
+      const response = await generateCopilotResponse(copilotHistory, query);
+
       let actionBtn: { label: string; action: () => void } | undefined = undefined;
 
-      const lower = query.toLowerCase();
-
-      if (lower.includes('6,000') || lower.includes('6000') || lower.includes('bill')) {
-        responseText = 'Based on an average monthly electricity bill of ₹6,000, a solar system around 5 kW (approx 9 to 10 × 550W panels) is worth evaluating. This is a preliminary estimate. Your exact requirement depends on your location, shading, and DISCOM tariff.';
-        actionBtn = {
-          label: 'Calculate My Solar System',
-          action: () => {
-            onClose();
-            onOpenCalculator();
-          }
-        };
-      } else if (lower.includes('450w') || lower.includes('550w') || lower.includes('wattage')) {
-        responseText = 'Monocrystalline 550W PERC panels offer ~22.8% efficiency, requiring significantly less roof area per kilowatt than 450W panels (~17.5% efficiency). 550W panels are ideal for maximum output on limited rooftops.';
-        actionBtn = {
-          label: 'View 550W Monocrystalline Panels',
-          action: () => {
-            const p = SOLAR_PRODUCTS.find(item => item.id === 'panel-mono-550');
-            if (p) onSelectProduct(p);
-            onClose();
-          }
-        };
-      } else if (lower.includes('battery') || lower.includes('backup')) {
-        responseText = 'A Lithium Iron Phosphate (LiFePO4) battery stores excess daytime solar energy for nighttime consumption or grid blackouts. If your local power grid has frequent outages, a 10.2kWh battery wall provides total energy independence.';
-        actionBtn = {
-          label: 'View 10.2kWh LiFePO4 Battery',
-          action: () => {
-            const p = SOLAR_PRODUCTS.find(item => item.id === 'bat-lfp-10k');
-            if (p) onSelectProduct(p);
-            onClose();
-          }
-        };
-      } else if (lower.includes('inverter') || lower.includes('hybrid')) {
-        responseText = 'Hybrid solar inverters manage both solar panel generation and battery charge/discharge simultaneously, with automatic zero-drop grid switching during power cuts.';
-        actionBtn = {
-          label: 'View 6kW Hybrid Inverter',
-          action: () => {
-            const p = SOLAR_PRODUCTS.find(item => item.id === 'inv-hybrid-6k');
-            if (p) onSelectProduct(p);
-            onClose();
-          }
-        };
-      } else {
-        responseText = 'I can help you size your rooftop solar system, compare Monocrystalline vs Polycrystalline panels, calculate return on investment, or select hybrid inverters. Feel free to ask!';
+      if (response.actionButton) {
+        if (response.actionButton.actionType === 'CALCULATE') {
+          actionBtn = {
+            label: response.actionButton.label,
+            action: () => {
+              onClose();
+              onOpenCalculator();
+            }
+          };
+        } else if (response.actionButton.actionType === 'PRODUCT' && response.actionButton.productId) {
+          const prodId = response.actionButton.productId;
+          actionBtn = {
+            label: response.actionButton.label,
+            action: () => {
+              const p = SOLAR_PRODUCTS.find(item => item.id === prodId);
+              if (p) onSelectProduct(p);
+              onClose();
+            }
+          };
+        }
       }
 
-      setMessages(prev => [...prev, { sender: 'ai', text: responseText, actionButton: actionBtn }]);
-    }, 600);
+      setMessages(prev => [
+        ...prev,
+        {
+          sender: 'ai',
+          text: response.text,
+          actionButton: actionBtn
+        }
+      ]);
+    } catch (err) {
+      setMessages(prev => [
+        ...prev,
+        {
+          sender: 'ai',
+          text: "I'm your AI Solar Copilot ☀️. Feel free to ask me any question about solar panels, inverters, battery storage, calculations, or installation!"
+        }
+      ]);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   return (

@@ -153,7 +153,17 @@ export const ScrollCanvas: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 object-cover bg-[#05070a]"
+      className="fixed inset-0 w-screen h-screen pointer-events-none z-0 object-cover bg-[#05070a]"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 0,
+        pointerEvents: 'none',
+        objectFit: 'cover'
+      }}
     />
   );
 };

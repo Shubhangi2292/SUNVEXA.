@@ -1,6 +1,6 @@
 import { SOLAR_PRODUCTS, SolarProduct } from '../data/solarProducts';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || 'http://localhost:8080/api';
 
 // Token Management
 export const getAuthToken = (): string | null => localStorage.getItem('sunvexa_token');
@@ -64,7 +64,7 @@ export async function fetchProducts(): Promise<SolarProduct[]> {
       return data.map((p) => ({
         id: String(p.id),
         name: p.name,
-        category: p.category === 'SOLAR_PANEL' ? 'panels' : p.category === 'INVERTER' ? 'inverters' : p.category === 'BATTERY' ? 'batteries' : 'hardware',
+        category: p.category === 'SOLAR_PANEL' ? 'panels' : p.category === 'INVERTER' ? 'inverters' : p.category === 'BATTERY' ? 'batteries' : 'accessories',
         subCategory: p.productType || p.category,
         description: p.description,
         price: Number(p.price),
@@ -78,7 +78,8 @@ export async function fetchProducts(): Promise<SolarProduct[]> {
           'Warranty': `${p.warrantyYears || 25} Years`,
         },
         warranty: `${p.warrantyYears || 25} Years Manufacturer Warranty`,
-        availability: p.stockQuantity > 0 ? 'In Stock' : 'Out of Stock',
+        availability: p.stockQuantity > 0 ? 'In Stock' : 'Limited Stock',
+        bestUse: p.bestUse || 'General rooftop solar application',
       }));
     }
     return SOLAR_PRODUCTS;
@@ -163,17 +164,9 @@ export async function submitQuoteRequest(quoteData: any) {
 }
 
 // ==================== AI COPILOT API ====================
-export async function sendCopilotChat(message: string) {
-  try {
-    return await apiFetch<any>('/copilot/chat', {
-      method: 'POST',
-      body: JSON.stringify({ message }),
-    });
-  } catch {
-    return {
-      reply: 'SUNVEXA AI Solar Copilot recommends installing a 5.5 kW monocrystalline rooftop setup to cut monthly power bills by 85%.',
-      recommendedAction: 'CALCULATE_SAVINGS',
-      isSimulated: true,
-    };
-  }
+export async function sendCopilotChat(message: string, history: Array<{ sender: string; text: string }> = []) {
+  return await apiFetch<any>('/copilot/chat', {
+    method: 'POST',
+    body: JSON.stringify({ message, history }),
+  });
 }

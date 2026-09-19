@@ -272,7 +272,7 @@ export default function App() {
             }`} />
 
           {/* Faded Background Watermark Text */}
-          <div className={`absolute top-12 left-1/2 -translate-x-1/2 text-[14vw] font-black whitespace-nowrap select-none pointer-events-none tracking-tighter transition-colors duration-500 ${theme === 'light' ? 'text-black/[0.04]' : 'text-white/[0.03]'
+          <div className={`absolute top-20 md:top-24 left-1/2 -translate-x-1/2 text-[14vw] font-black whitespace-nowrap select-none pointer-events-none tracking-tighter transition-colors duration-500 ${theme === 'light' ? 'text-black/[0.04]' : 'text-white/[0.03]'
             }`}>
             SOLAR ENERGY
           </div>
@@ -410,7 +410,7 @@ export default function App() {
           </header>
 
           {/* Hero Main Content */}
-          <div className="relative z-10 max-w-[1600px] mx-auto w-full pt-16 md:pt-24 px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="relative z-10 max-w-[1600px] mx-auto w-full pt-16 md:pt-24 px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
             {/* Left Hero Column */}
             <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
