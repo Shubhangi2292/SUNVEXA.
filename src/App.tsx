@@ -260,6 +260,138 @@ export default function App() {
       {/* Main Page Content Layer */}
       <div className="relative z-10">
 
+        {/* Extended Navigation Bar (Fixed at Top of Viewport) */}
+        <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1600px] z-50">
+          <div className={`flex items-center justify-between backdrop-blur-xl px-4 md:px-6 py-2.5 rounded-full shadow-2xl transition-all ${theme === 'light'
+              ? 'bg-white/90 border border-black/10 text-[#0a110d] hover:bg-white'
+              : 'bg-[#0a110d]/85 border border-white/20 text-white hover:bg-[#0a110d]/95'
+            }`}>
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-2.5 font-bold text-lg tracking-tight group">
+              <div className="w-7 h-7 rounded-full bg-[#d4ff33] flex items-center justify-center shadow-[0_0_15px_rgba(212,255,51,0.5)] transition-transform group-hover:scale-110">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#0a110d]" />
+              </div>
+              <span className={theme === 'light' ? 'text-[#0a110d]' : 'text-white'}>SUNVEXA</span>
+            </a>
+
+            {/* Nav Links */}
+            <nav className={`hidden xl:flex items-center gap-4 text-xs font-medium ${theme === 'light' ? 'text-[#0a110d]/80' : 'text-white/80'
+              }`}>
+              <a href="#" className="hover:text-[#d4ff33] transition-colors py-1">Home</a>
+              <a href="#digital-twin" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold text-[#d4ff33]">Digital Twin</a>
+              <a href="#simulator-24h" className="hover:text-[#d4ff33] transition-colors py-1">24H Sim</a>
+              <a href="#roof-analysis" className="hover:text-[#d4ff33] transition-colors py-1">Roof AI</a>
+              <a href="#build-system" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold text-[#d4ff33]">Build System</a>
+              <a href="#products" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold">Products</a>
+              <a href="#solutions" className="hover:text-[#d4ff33] transition-colors py-1">Solutions</a>
+              <a href="#calculator" className="hover:text-[#d4ff33] transition-colors py-1">Calculator</a>
+              <button onClick={() => setIsComparisonOpen(true)} className="hover:text-[#d4ff33] transition-colors py-1 cursor-pointer">Compare</button>
+              <a href="#faq" className="hover:text-[#d4ff33] transition-colors py-1">FAQ</a>
+            </nav>
+
+            {/* Header Action Buttons: Theme Toggle + Cart + Login */}
+            <div className="flex items-center gap-2">
+
+              {/* Dark / Light Mode Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                className={`p-2 rounded-full transition-all cursor-pointer ${theme === 'light'
+                    ? 'bg-black/10 text-[#0a110d] hover:bg-black/20'
+                    : 'bg-white/10 text-amber-300 hover:bg-white/20'
+                  }`}
+                title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4 text-amber-300" />
+                ) : (
+                  <Moon className="w-4 h-4 text-[#0a110d]" />
+                )}
+              </button>
+
+              {/* Cart Icon Counter Button */}
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className={`relative p-2 rounded-full transition-all cursor-pointer ${theme === 'light' ? 'bg-black/10 text-[#0a110d] hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                title="Shopping Cart"
+              >
+                <ShoppingCart className="w-4 h-4 text-[#d4ff33]" />
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#d4ff33] text-[#0a110d] font-extrabold text-[10px] rounded-full flex items-center justify-center shadow-lg">
+                    {cartItems.reduce((a, b) => a + b.quantity, 0)}
+                  </span>
+                )}
+              </button>
+
+              {/* Login / Customer Portal Button */}
+              {currentUser ? (
+                <button
+                  onClick={() => setIsDashboardOpen(true)}
+                  className={`flex items-center gap-2 font-semibold text-xs px-3.5 py-2 rounded-full border transition-all cursor-pointer ${theme === 'light'
+                      ? 'bg-black/10 text-[#0a110d] border-black/20 hover:bg-black/20'
+                      : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+                    }`}
+                >
+                  <div className="w-5 h-5 rounded-full bg-[#d4ff33] text-[#0a110d] font-bold flex items-center justify-center text-[10px]">
+                    {currentUser.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span>Portal</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setAuthInitialMode('login');
+                    setIsAuthModalOpen(true);
+                  }}
+                  className={`flex items-center gap-1.5 font-semibold text-xs px-3 py-2 rounded-full border transition-all cursor-pointer ${theme === 'light'
+                      ? 'bg-black/10 text-[#0a110d] border-black/20 hover:bg-black/20'
+                      : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+                    }`}
+                >
+                  <LogIn className="w-3.5 h-3.5 text-[#d4ff33]" />
+                  <span>Login</span>
+                </button>
+              )}
+
+              <button
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="bg-[#d4ff33] hover:bg-[#bce61a] text-[#0a110d] font-semibold text-xs md:text-sm px-4 md:px-5 py-2 rounded-full transition-all shadow-[0_4px_15px_rgba(212,255,51,0.25)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5"
+              >
+                Get Started
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Mobile menu toggle */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="xl:hidden p-2"
+                aria-label="Toggle menu"
+              >
+                <div className="w-5 h-4 flex flex-col justify-between">
+                  <span className={`h-0.5 w-full bg-current transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+                  <span className={`h-0.5 w-full bg-current transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                  <span className={`h-0.5 w-full bg-current transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Dropdown */}
+          {mobileMenuOpen && (
+            <div className={`xl:hidden mt-3 backdrop-blur-2xl border rounded-2xl p-4 flex flex-col gap-2.5 text-xs shadow-2xl ${theme === 'light' ? 'bg-white/95 border-black/10 text-[#0a110d]' : 'bg-[#121c17]/95 border-white/20 text-white'
+              }`}>
+              <a href="#digital-twin" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg bg-[#d4ff33]/10 text-[#d4ff33] font-bold">Solar Digital Twin</a>
+              <a href="#simulator-24h" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">24-Hour Energy Simulator</a>
+              <a href="#roof-analysis" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Analyze My Roof AI</a>
+              <a href="#build-system" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10 text-[#d4ff33]">Build Your Solar System</a>
+              <a href="#products" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Solar Products Catalog</a>
+              <a href="#solutions" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Solutions</a>
+              <a href="#calculator" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Savings Calculator</a>
+              <button onClick={() => { setMobileMenuOpen(false); setIsCopilotOpen(true); }} className="py-2 px-3 rounded-lg hover:bg-black/10 text-left text-[#d4ff33] font-bold">AI Solar Copilot</button>
+            </div>
+          )}
+        </header>
+
         {/* --- HERO SECTION --- */}
         <section className={`relative min-h-[92vh] backdrop-blur-md pt-28 pb-16 px-4 md:px-10 flex flex-col justify-center overflow-hidden rounded-b-[40px] md:rounded-b-[60px] shadow-2xl border-b transition-colors duration-500 ${theme === 'light'
             ? 'bg-[#ffffff]/80 text-[#0a110d] border-black/10'
@@ -276,138 +408,6 @@ export default function App() {
             }`}>
             SOLAR ENERGY
           </div>
-
-          {/* Extended Navigation Bar */}
-          <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1600px] z-50">
-            <div className={`flex items-center justify-between backdrop-blur-xl px-4 md:px-6 py-2.5 rounded-full shadow-2xl transition-all ${theme === 'light'
-                ? 'bg-white/90 border border-black/10 text-[#0a110d] hover:bg-white'
-                : 'bg-[#0a110d]/85 border border-white/20 text-white hover:bg-[#0a110d]/95'
-              }`}>
-              {/* Logo */}
-              <a href="#" className="flex items-center gap-2.5 font-bold text-lg tracking-tight group">
-                <div className="w-7 h-7 rounded-full bg-[#d4ff33] flex items-center justify-center shadow-[0_0_15px_rgba(212,255,51,0.5)] transition-transform group-hover:scale-110">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#0a110d]" />
-                </div>
-                <span className={theme === 'light' ? 'text-[#0a110d]' : 'text-white'}>SUNVEXA</span>
-              </a>
-
-              {/* Nav Links */}
-              <nav className={`hidden xl:flex items-center gap-4 text-xs font-medium ${theme === 'light' ? 'text-[#0a110d]/80' : 'text-white/80'
-                }`}>
-                <a href="#" className="hover:text-[#d4ff33] transition-colors py-1">Home</a>
-                <a href="#digital-twin" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold text-[#d4ff33]">Digital Twin</a>
-                <a href="#simulator-24h" className="hover:text-[#d4ff33] transition-colors py-1">24H Sim</a>
-                <a href="#roof-analysis" className="hover:text-[#d4ff33] transition-colors py-1">Roof AI</a>
-                <a href="#build-system" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold text-[#d4ff33]">Build System</a>
-                <a href="#products" className="hover:text-[#d4ff33] transition-colors py-1 font-semibold">Products</a>
-                <a href="#solutions" className="hover:text-[#d4ff33] transition-colors py-1">Solutions</a>
-                <a href="#calculator" className="hover:text-[#d4ff33] transition-colors py-1">Calculator</a>
-                <button onClick={() => setIsComparisonOpen(true)} className="hover:text-[#d4ff33] transition-colors py-1 cursor-pointer">Compare</button>
-                <a href="#faq" className="hover:text-[#d4ff33] transition-colors py-1">FAQ</a>
-              </nav>
-
-              {/* Header Action Buttons: Theme Toggle + Cart + Login */}
-              <div className="flex items-center gap-2">
-
-                {/* Dark / Light Mode Toggle Button */}
-                <button
-                  onClick={toggleTheme}
-                  className={`p-2 rounded-full transition-all cursor-pointer ${theme === 'light'
-                      ? 'bg-black/10 text-[#0a110d] hover:bg-black/20'
-                      : 'bg-white/10 text-amber-300 hover:bg-white/20'
-                    }`}
-                  title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                >
-                  {theme === 'dark' ? (
-                    <Sun className="w-4 h-4 text-amber-300" />
-                  ) : (
-                    <Moon className="w-4 h-4 text-[#0a110d]" />
-                  )}
-                </button>
-
-                {/* Cart Icon Counter Button */}
-                <button
-                  onClick={() => setIsCartOpen(true)}
-                  className={`relative p-2 rounded-full transition-all cursor-pointer ${theme === 'light' ? 'bg-black/10 text-[#0a110d] hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                  title="Shopping Cart"
-                >
-                  <ShoppingCart className="w-4 h-4 text-[#d4ff33]" />
-                  {cartItems.length > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#d4ff33] text-[#0a110d] font-extrabold text-[10px] rounded-full flex items-center justify-center shadow-lg">
-                      {cartItems.reduce((a, b) => a + b.quantity, 0)}
-                    </span>
-                  )}
-                </button>
-
-                {/* Login / Customer Portal Button */}
-                {currentUser ? (
-                  <button
-                    onClick={() => setIsDashboardOpen(true)}
-                    className={`flex items-center gap-2 font-semibold text-xs px-3.5 py-2 rounded-full border transition-all cursor-pointer ${theme === 'light'
-                        ? 'bg-black/10 text-[#0a110d] border-black/20 hover:bg-black/20'
-                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-                      }`}
-                  >
-                    <div className="w-5 h-5 rounded-full bg-[#d4ff33] text-[#0a110d] font-bold flex items-center justify-center text-[10px]">
-                      {currentUser.name.charAt(0).toUpperCase()}
-                    </div>
-                    <span>Portal</span>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      setAuthInitialMode('login');
-                      setIsAuthModalOpen(true);
-                    }}
-                    className={`flex items-center gap-1.5 font-semibold text-xs px-3 py-2 rounded-full border transition-all cursor-pointer ${theme === 'light'
-                        ? 'bg-black/10 text-[#0a110d] border-black/20 hover:bg-black/20'
-                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-                      }`}
-                  >
-                    <LogIn className="w-3.5 h-3.5 text-[#d4ff33]" />
-                    <span>Login</span>
-                  </button>
-                )}
-
-                <button
-                  onClick={() => setIsQuoteModalOpen(true)}
-                  className="bg-[#d4ff33] hover:bg-[#bce61a] text-[#0a110d] font-semibold text-xs md:text-sm px-4 md:px-5 py-2 rounded-full transition-all shadow-[0_4px_15px_rgba(212,255,51,0.25)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5"
-                >
-                  Get Started
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-
-                {/* Mobile menu toggle */}
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="xl:hidden p-2"
-                  aria-label="Toggle menu"
-                >
-                  <div className="w-5 h-4 flex flex-col justify-between">
-                    <span className={`h-0.5 w-full bg-current transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-                    <span className={`h-0.5 w-full bg-current transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-                    <span className={`h-0.5 w-full bg-current transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile Menu Dropdown */}
-            {mobileMenuOpen && (
-              <div className={`xl:hidden mt-3 backdrop-blur-2xl border rounded-2xl p-4 flex flex-col gap-2.5 text-xs shadow-2xl ${theme === 'light' ? 'bg-white/95 border-black/10 text-[#0a110d]' : 'bg-[#121c17]/95 border-white/20 text-white'
-                }`}>
-                <a href="#digital-twin" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg bg-[#d4ff33]/10 text-[#d4ff33] font-bold">Solar Digital Twin</a>
-                <a href="#simulator-24h" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">24-Hour Energy Simulator</a>
-                <a href="#roof-analysis" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Analyze My Roof AI</a>
-                <a href="#build-system" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10 text-[#d4ff33]">Build Your Solar System</a>
-                <a href="#products" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Solar Products Catalog</a>
-                <a href="#solutions" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Solutions</a>
-                <a href="#calculator" onClick={() => setMobileMenuOpen(false)} className="py-2 px-3 rounded-lg hover:bg-black/10">Savings Calculator</a>
-                <button onClick={() => { setMobileMenuOpen(false); setIsCopilotOpen(true); }} className="py-2 px-3 rounded-lg hover:bg-black/10 text-left text-[#d4ff33] font-bold">AI Solar Copilot</button>
-              </div>
-            )}
-          </header>
 
           {/* Hero Main Content */}
           <div className="relative z-10 max-w-[1600px] mx-auto w-full pt-16 md:pt-24 px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
