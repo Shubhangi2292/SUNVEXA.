@@ -139,7 +139,7 @@ export const SOLAR_PRODUCTS: SolarProduct[] = [
     price: 84900,
     rating: 4.8,
     reviewsCount: 65,
-    image: 'https://images.unsplash.com/photo-1584279893976-1e66c9ff99a5?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558442074-3c19857bc1dc?q=80&w=800&auto=format&fit=crop',
     badge: 'Commercial Grade',
     power: '10.0 kW',
     capacity: 'Triple MPPT',
