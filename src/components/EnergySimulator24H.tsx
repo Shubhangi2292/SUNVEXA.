@@ -113,10 +113,10 @@ export const EnergySimulator24H: React.FC = () => {
               className="w-full accent-[#d4ff33] cursor-pointer h-2"
             />
             <div className="flex justify-between text-[10px] text-white/50">
-              <span>00:00 (Midnight)</span>
-              <span>06:00 (Sunrise)</span>
-              <span>12:00 (Midday Peak)</span>
-              <span>18:00 (Sunset)</span>
+              <span>00:00<span className="hidden sm:inline"> (Midnight)</span></span>
+              <span>06:00<span className="hidden sm:inline"> (Sunrise)</span></span>
+              <span>12:00<span className="hidden sm:inline"> (Midday Peak)</span></span>
+              <span>18:00<span className="hidden sm:inline"> (Sunset)</span></span>
               <span>23:59</span>
             </div>
           </div>

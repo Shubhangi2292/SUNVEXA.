@@ -62,7 +62,7 @@ export const RoofAnalysis: React.FC = () => {
             <span className="text-xs text-white/50 block mt-1">Drag & drop or click to upload PNG/JPG</span>
           </div>
 
-          <div className="flex items-center justify-center gap-2 mt-4 text-xs text-white/70">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs text-white/70">
             <span>Or test with sample roof photos:</span>
             {sampleRoofImages.map((s) => (
               <button
